@@ -94,7 +94,10 @@ string fajlNev = "riport.txt";
 
 try
 {
-    var rendezettMuholdak = muholdak.Where(m => m.NapiKoltseg() > 2000).OrderByDescending(m => m.NapiKoltseg()).Select(m => $"{m.Azonosito};{m.SulyKg};{m.NapiKoltseg()}");
+    var rendezettMuholdak = muholdak
+        .Where(m => m.NapiKoltseg() > 2000)
+        .OrderByDescending(m => m.NapiKoltseg())
+        .Select(m => $"{m.Azonosito};{m.SulyKg};{m.NapiKoltseg()}");
 
     File.WriteAllLines(fajlNev, rendezettMuholdak);
 }
